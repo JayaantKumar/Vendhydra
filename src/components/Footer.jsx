@@ -1,16 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { BiDumbbell, BiUpArrowAlt } from 'react-icons/bi';
+import { Link } from 'react-router-dom'; // IMPORT THIS
 
 const Footer = () => {
   const [showTopBtn, setShowTopBtn] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 400) {
-        setShowTopBtn(true);
-      } else {
-        setShowTopBtn(false);
-      }
+      setShowTopBtn(window.scrollY > 400);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -28,10 +25,10 @@ const Footer = () => {
         <div>
           <div className="flex items-center gap-2 text-2xl font-black tracking-tighter mb-6">
             <BiDumbbell className="text-primary text-3xl" />
-            <span className="text-white">Fitness<span className="text-primary">Pro</span></span>
+            <span className="text-white">Vend<span className="text-primary">Hydra</span></span>
           </div>
           <p className="text-gray-400 leading-relaxed">
-            Transform your body and mind with our world-class facilities and expert guidance. Join the movement today.
+            Premium automated nutrition. Fuel your body instantly.
           </p>
         </div>
 
@@ -39,42 +36,38 @@ const Footer = () => {
         <div>
           <h4 className="text-white font-bold text-lg mb-6">Quick Links</h4>
           <ul className="space-y-3">
-            {['Home', 'About', 'Pricing', 'Trainers', 'Gallery'].map((item) => (
+            {['Home', 'About', 'Pricing', 'Reviews'].map((item) => (
               <li key={item}>
-                <a href={`#${item.toLowerCase()}`} className="text-gray-400 hover:text-primary transition-colors">{item}</a>
+                <a href={`/#${item.toLowerCase()}`} className="text-gray-400 hover:text-primary transition-colors">{item}</a>
               </li>
             ))}
           </ul>
         </div>
 
-        {/* Services */}
+        {/* Legal (REQUIRED FOR RAZORPAY) */}
         <div>
-          <h4 className="text-white font-bold text-lg mb-6">Services</h4>
+          <h4 className="text-white font-bold text-lg mb-6">Legal</h4>
           <ul className="space-y-3">
-            {['Strength Training', 'Yoga & Pilates', 'Cardio Fitness', 'Personal Training', 'Nutrition Plans'].map((item) => (
-              <li key={item} className="text-gray-400 hover:text-cyan transition-colors cursor-pointer">
-                {item}
-              </li>
-            ))}
+            <li><Link to="/privacy" className="text-gray-400 hover:text-cyan transition-colors">Privacy Policy</Link></li>
+            <li><Link to="/terms" className="text-gray-400 hover:text-cyan transition-colors">Terms & Conditions</Link></li>
+            <li><Link to="/refunds" className="text-gray-400 hover:text-cyan transition-colors">Refund Policy</Link></li>
+            <li><Link to="/shipping" className="text-gray-400 hover:text-cyan transition-colors">Shipping Policy</Link></li>
           </ul>
         </div>
 
-        {/* Newsletter */}
+        {/* Contact Info */}
         <div>
-          <h4 className="text-white font-bold text-lg mb-6">Newsletter</h4>
-          <p className="text-gray-400 mb-4">Subscribe for latest updates and offers.</p>
-          <div className="flex gap-2">
-            <input type="email" placeholder="Your Email" className="bg-gray-800 text-white px-4 py-2 rounded-l-lg focus:outline-none w-full" />
-            <button className="bg-primary text-white px-4 py-2 rounded-r-lg font-bold hover:bg-primary/90">Go</button>
-          </div>
+          <h4 className="text-white font-bold text-lg mb-6">Contact</h4>
+          <p className="text-gray-400 mb-2">123 Fitness Blvd, Gym District</p>
+          <p className="text-gray-400 mb-2">+91 98765 43210</p>
+          <p className="text-gray-400">support@vendhydra.com</p>
         </div>
       </div>
 
       <div className="border-t border-gray-800 pt-8 text-center text-gray-500 text-sm">
-        <p>&copy; {new Date().getFullYear()} FitnessPro. All rights reserved.</p>
+        <p>&copy; {new Date().getFullYear()} VendHydra. All rights reserved.</p>
       </div>
 
-      {/* Back to Top */}
       <button 
         onClick={scrollToTop}
         className={`fixed bottom-8 right-8 bg-gradient-to-r from-tangerine to-cyan text-white p-3 rounded-full shadow-lg transition-all duration-300 z-50 hover:-translate-y-1 ${showTopBtn ? 'opacity-100 visible' : 'opacity-0 invisible'}`}
