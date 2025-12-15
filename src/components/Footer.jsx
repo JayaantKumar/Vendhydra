@@ -65,12 +65,12 @@ const Footer = () => {
       </div>
 
       <div className="border-t border-gray-800 pt-8 text-center text-gray-500 text-sm">
-        <p>&copy; {new Date().getFullYear()} VendHydra. All rights reserved.</p>
+        <p>&copy; {new Date().getFullYear()} VEND HYDRAFUEL PRIVATE LIMITED. All rights reserved.</p>
       </div>
 
       <button 
         onClick={scrollToTop}
-        className={`fixed bottom-8 right-8 bg-gradient-to-r from-tangerine to-cyan text-white p-3 rounded-full shadow-lg transition-all duration-300 z-50 hover:-translate-y-1 ${showTopBtn ? 'opacity-100 visible' : 'opacity-0 invisible'}`}
+        className={`fixed bottom-8 right-8 bg-linear-to-r from-tangerine to-cyan text-white p-3 rounded-full shadow-lg transition-all duration-300 z-50 hover:-translate-y-1 ${showTopBtn ? 'opacity-100 visible' : 'opacity-0 invisible'}`}
       >
         <BiUpArrowAlt className="text-2xl" />
       </button>
