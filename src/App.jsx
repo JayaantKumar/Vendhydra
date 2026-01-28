@@ -2,10 +2,11 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-import About from './components/About';
-import Menu from './components/Menu';
+import About from './components/About'; 
+import Flavors from './components/Flavors';
 import Quality from './components/Quality';
-import Pricing from './components/Pricing';
+import Benefits from './components/Benefits'; 
+import ROI from './components/ROI'; // IMPORT NEW COMPONENT
 import Testimonials from './components/Testimonials';
 import Gallery from './components/Gallery';
 import Contact from './components/Contact';
@@ -17,16 +18,17 @@ import Terms from './components/Terms';
 import Refunds from './components/Refunds';
 import Shipping from './components/Shipping';
 
-// Create a Home Component for the main page content
 const Home = () => {
   return (
     <>
       <Navbar />
       <div id="home"><Hero /></div>
-      <div id="about"><About /></div>
-      <div id="menu"><Menu /></div>
+      <div id="how-it-works"><About /></div>
+      <div id="benefits"><Benefits /></div>
+      {/* Added ROI Section here */}
+      <div id="roi"><ROI /></div>
+      <div id="flavors"><Flavors /></div>
       <div id="quality"><Quality /></div>
-      <div id="pricing"><Pricing /></div>
       <div id="testimonials"><Testimonials /></div>
       <div id="gallery"><Gallery /></div>
       <div id="contact"><Contact /></div>

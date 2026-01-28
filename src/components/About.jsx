@@ -1,59 +1,81 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { BiRocket, BiSupport, BiMobileAlt, BiWallet } from 'react-icons/bi';
+// FIX: Switched to 'react-icons/fa' (Standard Version) to prevent errors
+import { FaHandPointer, FaCreditCard, FaMugHot, FaSmile } from 'react-icons/fa';
 
 const About = () => {
-  const features = [
-    { icon: <BiRocket />, title: "Instant Recovery", desc: "Get your protein within 30 seconds of finishing your set." },
-    { icon: <BiMobileAlt />, title: "Touchless Order", desc: "Order via app or simple QR scan." },
-    { icon: <BiWallet />, title: "Cashless Pay", desc: "UPI, Credit Card, and Gym Membership card integration." },
-    { icon: <BiSupport />, title: "24/7 Active", desc: "Our machines never sleep, always ready to fuel you." }
+  const steps = [
+    { 
+      icon: <FaHandPointer />, 
+      title: "1. Select", 
+      desc: "Members choose their flavor and protein type via the HD touchscreen interface." 
+    },
+    { 
+      icon: <FaCreditCard />, 
+      title: "2. Pay", 
+      desc: "Instant cashless payment via UPI QR code, Card, or Gym Membership integration." 
+    },
+    { 
+      icon: <FaMugHot />, 
+      title: "3. Dispense", 
+      desc: "The machine precisely mixes powder and chilled water, dispensing in under 30 seconds." 
+    },
+    { 
+      icon: <FaSmile />, 
+      title: "4. Fuel", 
+      desc: "Hygienic, clump-free, chilled protein ready immediately after their workout." 
+    }
   ];
 
   return (
-    <section className="section-padding bg-dark relative overflow-hidden">
+    <section id="how-it-works" className="section-padding bg-dark relative overflow-hidden">
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         
+        {/* Machine Image - Focusing on the interface/dispensing */}
         <motion.div 
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
           className="relative"
         >
-          <div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl shadow-cyan/20 border border-gray-700">
-            {/* Image of a modern vending machine or gym goer drinking shake */}
+          <div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl shadow-cyan/20 border border-gray-700 aspect-[4/5]">
             <img 
-              src="https://images.unsplash.com/photo-1594737625785-a6cbdabd333c?q=80&w=1470&auto=format&fit=crop" 
-              alt="Athlete drinking shake" 
-              className="w-full h-auto object-cover"
+              // A placeholder image showing a modern vending interface 
+              src="https://images.unsplash.com/photo-1574680096145-d05b474e2155?q=80&w=1469&auto=format&fit=crop" 
+              alt="Smart Vending Machine Touchscreen Interface" 
+              className="w-full h-full object-cover"
             />
+             <div className="absolute inset-0 bg-gradient-to-t from-dark/80 to-transparent"></div>
+             <div className="absolute bottom-8 left-8 right-8">
+                <h4 className="text-2xl font-bold text-white mb-2">Sleek Indian Design</h4>
+                <p className="text-gray-300">Compact footprint designed for modern Indian gyms. Prototype ready April 2026.</p>
+             </div>
           </div>
         </motion.div>
 
+        {/* Process Steps */}
         <motion.div 
           initial={{ opacity: 0, x: 50 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
         >
-          <h3 className="text-primary font-bold uppercase tracking-wider mb-2">The Future of Fuel</h3>
+          <h3 className="text-primary font-bold uppercase tracking-wider mb-2">Automation</h3>
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Fitness Meets <span className="gradient-text">Automation</span>
+            Technology Meets <span className="gradient-text">Nutrition.</span>
           </h2>
           <p className="text-gray-400 text-lg mb-8 leading-relaxed">
-            Forget carrying shaker bottles or dealing with messy powders in the locker room. FuelStation brings premium nutrition automation to your gym floor. We bridge the gap between your workout and your recovery.
+            Forget messy counters and manual mixing. VendHydra automates the entire process, ensuring consistent quality and hygiene while freeing up your staff.
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            {features.map((feature, idx) => (
-              <div key={idx} className="flex items-start gap-4">
-                <div className="text-3xl text-tangerine bg-gray-card p-3 rounded-lg">
-                  {feature.icon}
+            {steps.map((step, idx) => (
+              <div key={idx} className="flex flex-col gap-2 bg-dark-card p-4 rounded-xl border border-gray-800 hover:border-primary transition-colors">
+                <div className="text-3xl text-tangerine w-fit">
+                  {step.icon}
                 </div>
                 <div>
-                  <h4 className="text-white font-bold text-lg">{feature.title}</h4>
-                  <p className="text-gray-500 text-sm">{feature.desc}</p>
+                  <h4 className="text-white font-bold text-lg">{step.title}</h4>
+                  <p className="text-gray-500 text-sm mt-1">{step.desc}</p>
                 </div>
               </div>
             ))}
